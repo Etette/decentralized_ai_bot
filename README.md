@@ -1,6 +1,6 @@
 # **De-assistant - Decentralized AI Assistant Chatbot on ICP**
 
-### **Attention**
+## **Attention**
 
 This codebase is intended for testing purposes, and several improvements need to be implemented before it can be utilized in real production applications.
 
@@ -15,12 +15,11 @@ De-assistant is a decentralized AI assistant chatbot built on the Internet Compu
 Create a **`credential.js`** file in the root directory and set your OpenAI API and the assitant Id key as follows:
 
 ```javascript
-export const OPEN_AI_API_KEY = "YOUR_OPEN_AI_API_KEY";
 export const ASSISTANT_ID = "ASSISTANT_ID";
 ```
 
 Refer to **`credential.example.js`**
-Note: This file is ignored by default; please ensure it is excluded from version control to prevent accidental exposure of your API key.
+Note: This file is ignored by default; please ensure it is excluded from version control to prevent accidental exposure of your assistant id.
 
 After setting up the frontend credentials, ensure that you have the **`dfx`** command-line tool installed on your computer. Check its version with the following command:
 
