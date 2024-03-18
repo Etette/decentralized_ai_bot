@@ -1,6 +1,6 @@
 import { StableBTreeMap } from "azle";
 import { Request, Response } from "express";
-import { ASSISTANT_ID } from "../../../../credential.example";
+import { ASSISTANT_ID } from "../../../../credential";
 
 type Thread = {
   id: string;
@@ -58,5 +58,13 @@ export default class AssistantController {
     }
     threadStorage.remove(userIdentity);
     return res.status(201).json({ message: "Thread deleted successfully" });
+  }
+
+  static verifySavedThread(req: Request, res: Response) {
+    const thread = threadStorage.get(req.body.userIdentity);
+    if ("None" in thread) {
+      return res.send(false);
+    }
+    return res.send(true);
   }
 }

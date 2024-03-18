@@ -18,6 +18,7 @@ export default Server(() => {
     AssistantMiddleware.saveThread,
     AssistantController.saveThread
   );
+  app.post("/thread/verify", AssistantController.verifySavedThread);
   app.get("/thread/:userIdentity", AssistantController.getThread);
   app.delete(
     "/thread",
