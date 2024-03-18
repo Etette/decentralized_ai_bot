@@ -1,16 +1,36 @@
-import { Canister } from "azle";
-import assistant from "./assistant";
-import user from "./user";
-import { ASSISTANT_ID } from "../../../credential";
+import { Server } from "azle";
+import express from "express";
+import cors from "cors";
+import AssistantController from "./controllers/assistant.controller";
+import AssistantMiddleware from "./middleware/assistant.middlware";
+import UserMiddleware from "./middleware/user.middleware";
+import UserController from "./controllers/user.controller";
 
-let assistantId: string = ASSISTANT_ID ?? "";
+export default Server(() => {
+  const app = express();
+  app.use(cors());
+  app.use(express.json());
+  app.get("/", (req, res) => res.json({ messsage: "Assistant deBot" }));
 
-export default Canister({
-  getAssistant: assistant.getAssistant(assistantId),
-  updateUsername: user.updateUsername(),
-  getUsername: user.getUsername(),
-  saveThread: assistant.saveThread(),
-  deleteThread: assistant.deleteThread(),
-  getThread: assistant.getThread(),
-  hasASavedThread: assistant.hasASavedThread(),
+  app.get("/assistant", AssistantController.getAssistant);
+  app.put(
+    "/thread",
+    AssistantMiddleware.saveThread,
+    AssistantController.saveThread
+  );
+  app.get("/thread/:userIdentity", AssistantController.getThread);
+  app.delete(
+    "/thread",
+    AssistantMiddleware.deleteThread,
+    AssistantController.deleteThread
+  );
+
+  app.post(
+    "/user",
+    UserMiddleware.updateUsername,
+    UserController.updateUsername
+  );
+  app.get("/user/:userIdentity", UserController.getUsername);
+
+  return app.listen();
 });
