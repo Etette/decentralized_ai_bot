@@ -5,7 +5,8 @@ import { decryptData } from "./encryptData";
 
 // NOTE: This is only for testing purposes. The API should not be exposed in a real production app
 const openai = new Openai({
-  apiKey: decryptData(localStorage.getItem("icp-dai-open-ai")) ?? "",
+  apiKey:
+    decryptData(localStorage.getItem("icp-dai-open-ai"))?.split('"')[1] ?? "",
   dangerouslyAllowBrowser: true,
 });
 

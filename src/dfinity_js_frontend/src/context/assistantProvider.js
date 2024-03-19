@@ -13,7 +13,7 @@ const AssistantProvider = ({ children }) => {
     try {
       const data = await getMyAssistant();
       console.log(data);
-      setAssistant(data);
+      setAssistant({ id: data });
     } catch (e) {
       console.log(e);
     }
