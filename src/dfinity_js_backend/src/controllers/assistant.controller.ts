@@ -52,7 +52,7 @@ export default class AssistantController {
     const userIdentity = req.body.userIdentity;
     const threadToDelete = threadStorage.get(userIdentity);
     if ("None" in threadToDelete) {
-      return res.status(409).json({
+      return res.status(404).json({
         message: `Thread not found for ${userIdentity} ICP indentity`,
       });
     }
