@@ -1,8 +1,5 @@
-# **De-assistant - Decentralized AI Assistant Chatbot on ICP**
+# **De-assistant - Decentralized AI Assistant Chatbot**
 
-## **Attention**
-
-This codebase is intended for testing purposes, and several improvements need to be implemented before it can be utilized in real production applications.
 
 De-assistant is a decentralized AI assistant chatbot built on the Internet Computer Protocol (ICP). This README provides guidance on setting up and running the application.
 
@@ -27,9 +24,6 @@ After setting up the frontend credentials, ensure that you have the **`dfx`** co
 dfx --version
 ```
 
-If you don't have it installed, follow the instructions in the [ICP SDK installation guide](https://internetcomputer.org/docs/current/developer-docs/setup/install#installing-the-ic-sdk-1), making sure to set up version **`0.17.*`**.
-
-For a smooth deployment, follow the [Azle installation documentation](https://demergent-labs.github.io/azle/installation.html#build-dependencies).
 
 ## **Install Dependencies**
 
@@ -48,8 +42,7 @@ dfx start --clean
 
 ```
 
-To run the app locally, ensure that **`dfx`** (Internet Computer CDK) is installed and running. Execute the following command in another terminal window without closing the replica:
-
+To run the app locally, ensure that **`dfx`** (Internet Computer CDK) is installed and running.
 ```bash
 dfx deploy
 
@@ -93,7 +86,3 @@ dfx deploy dfinity_js_frontend
 npm start
 
 ```
-
-## **Troubleshooting**
-
-If you encounter any issues, refer to this [documentation](https://demergent-labs.github.io/azle/deployment.html#common-deployment-issues) or reach out to [me](https://github.com/Jonath-z).

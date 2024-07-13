@@ -10,7 +10,7 @@ export default Server(() => {
   const app = express();
   app.use(cors());
   app.use(express.json());
-  app.get("/", (req, res) => res.json({ messsage: "Assistant deBot" }));
+  app.get("/", (req, res) => res.json({ messsage: "Decentralized Assistant" }));
 
   app.get("/assistant", AssistantController.getAssistant);
   app.put(
